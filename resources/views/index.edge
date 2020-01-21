@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adonis To Do</title>
+  {{ style('style') }}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <h1>To Do List</h1>
+  <form method="POST" action="{{route('todo.store')}}">
+    {{ csrfField() }}
+    <input type="text" class="input-todo" name="name" placeholder="Title" required>
+    <button type="submit" class="button-todo">Add</button>
+    </form>
+  </header>
+  <section class="list">
+    @if(todos.length > 0)
+    <ul>
+      @each(todo in todos)
+      <li>{{todo.name}}
+        <form method="POST" action="{{ route('todo.destroy', {id: todo.id})+'?_method=DELETE'}}">
+          {{ csrfField() }}
+          <button type="submit"><i class="fas fa-trash-alt"></i></button>
+        </form>
+      </li>
+      @endeach
+    </ul>
+    @else
+      <div class="error">There is nothing to do</div>
+    @endif
+  </section>
+</body>
+</html>

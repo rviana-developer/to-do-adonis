@@ -3,90 +3,81 @@
 html, body {
   height: 100%;
   width: 100%;
-}
-
-body {
+  background: #f0f0f0;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  background-image: url("/splash.png");
-  background-color: #220052;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  outline: none;
 }
 
-section {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 536px;
-  margin: auto;
-  position: relative;
+li {
+  list-style: none;
 }
 
-section:before {
-  content: "";
-  position: absolute;
-  background: url("/pyramid.png") no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 402px;
-  z-index: -1;
-}
-
-.logo {
-  background: url("/logo.svg") no-repeat;
-  width: 36px;
-  height: 33px;
-  background-size: 100%;
-  margin-bottom: 35px;
-  opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 1.3s forwards;
-}
-
-.title {
-  background: url("/title.svg") no-repeat;
-  width: 219px;
-  height: 36px;
-  background-size: 100%;
-  opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.2s forwards;
-}
-
-.subtitle {
-  margin-top: 25px;
-  color: #BDB3CB;
-  font-size: 17px;
+/* HEADER && INPUT */
+.header {
+  background-color: #333;
+  padding: 30px 40px;
+  color: white;
   text-align: center;
-  letter-spacing: 0.5;
-  opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.5s forwards;
 }
 
-
-a {
-  color: inherit;
-  text-decoration: underline;
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.header h1 {
+  margin-bottom: 10px;;
+}
+.header .button-todo {
+  padding: 10px;
+  width: 20%;
+  color: #333;
+  background: #f0f0f0;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-p {
-  margin: 0.83rem 0;
+.header input {
+  margin:0;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 70%;
+  font-size: 16px;
+  float: left;
+  background: #f0f0f0;
 }
+/* LIST TO DO */
 
-@keyframes slideUp {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2%;
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-  }
+.list {
+  text-align: center;
+  padding: 30px;
+}
+.list ul li {
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 4px;
+  background: #333;
+  margin-bottom: 5px;
+}
+.list ul li form {
+  float: right;
+}
+.list ul li form button {
+  padding: 0 10px;
+  cursor: pointer;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+.list .error {
+  font-size: 22px;
 }
